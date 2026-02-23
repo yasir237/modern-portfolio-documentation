@@ -493,7 +493,7 @@ To correctly obtain the icon name, follow the steps below:
 <br>
 
 <p align="center">
-  <img width="900" alt="Copying the icon name" src="[https://github.com/user-attachments/assets/1d017023-ca6e-4fab-a754-53d04df011da](https://github.com/user-attachments/assets/c2275242-ea6d-4527-99c2-09570ce4708d)" style="border-radius:15px;" />
+  <img width="900" alt="Copying the icon name" src="https://github.com/user-attachments/assets/c2275242-ea6d-4527-99c2-09570ce4708d" style="border-radius:15px;" />
 </p>
 
 1. Click on the icon you want to use.
