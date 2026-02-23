@@ -452,7 +452,6 @@ To change an icon, simply write the name of the desired icon inside the `icon` f
 ```
 
 
-
 #### ‣ How to Choose an Icon
 
 1. To view the list of available icons:
@@ -460,7 +459,7 @@ To change an icon, simply write the name of the desired icon inside the `icon` f
 <p align="center">
   <a href="https://lucide.dev/icons" target="_blank">
     <img 
-      src="https://github.com/user-attachments/assets/6ce78af2-d171-4f5c-a698-80db4404bd8a"
+      src="https://github.com/user-attachments/assets/022473e2-7b0b-4d95-aeec-49a4ca8cf425"
       alt="Lucide React Icons"
       width="900"
       style="border-radius:15px;"
@@ -494,7 +493,7 @@ To correctly obtain the icon name, follow the steps below:
 <br>
 
 <p align="center">
-  <img width="900" alt="Copying the icon name" src="https://github.com/user-attachments/assets/1d017023-ca6e-4fab-a754-53d04df011da" style="border-radius:15px;" />
+  <img width="900" alt="Copying the icon name" src="[https://github.com/user-attachments/assets/1d017023-ca6e-4fab-a754-53d04df011da](https://github.com/user-attachments/assets/c2275242-ea6d-4527-99c2-09570ce4708d)" style="border-radius:15px;" />
 </p>
 
 1. Click on the icon you want to use.
