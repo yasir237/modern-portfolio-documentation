@@ -661,7 +661,7 @@ The file structure is as follows:
 }
 ```
 
----
+ 
 
 #### ‣ Titles and Tabs
 
@@ -672,7 +672,7 @@ The file structure is as follows:
 
 When you modify these texts, the page updates automatically.
 
----
+ 
 
 #### ‣ How to Add Experience
 
@@ -688,7 +688,7 @@ Example structure:
 }
 ```
 
----
+ 
 
 #### ‣ Meaning of Experience Fields
 
@@ -696,7 +696,7 @@ Example structure:
 * `title` → Position title
 * `company` → Company or project name
 
----
+ 
 
 #### ‣ Adding a New Experience Entry
 
@@ -731,7 +731,7 @@ If you want to add multiple entries, the structure should look like this:
 
 > Note: A comma must be placed between each object. However, do not add a comma after the last object.
 
----
+ 
 
 #### ‣ How to Add Education
 
@@ -747,7 +747,7 @@ Example structure:
 }
 ```
 
----
+ 
 
 #### ‣ Meaning of Education Fields
 
@@ -755,7 +755,7 @@ Example structure:
 * `title` → Degree or program name
 * `company` → University or institution name
 
----
+ 
 
 #### ‣ Adding a New Education Entry
 
@@ -824,7 +824,7 @@ The file structure is as follows:
 }
 ```
 
----
+ 
 
 #### ‣ Changing the Title and Category Names
 
@@ -841,7 +841,7 @@ For example:
 
 When you save the file, the page updates automatically.
 
----
+ 
 
 #### ‣ How to Add a Skill
 
@@ -856,7 +856,7 @@ Example:
 ]
 ```
 
----
+ 
 
 #### ‣ Adding a New Programming Language
 
@@ -864,7 +864,7 @@ Example:
 { "name": "Python" }
 ```
 
----
+ 
 
 #### ‣ Adding a New Framework
 
@@ -876,7 +876,7 @@ Example:
 ]
 ```
 
----
+ 
 
 #### ‣ Adding a New Concept
 
@@ -884,7 +884,7 @@ Example:
 { "name": "Clean Architecture" }
 ```
 
----
+ 
 
 #### ‣ Adding a New Database
 
@@ -892,7 +892,7 @@ Example:
 { "name": "PostgreSQL" }
 ```
 
----
+ 
 
 #### ‣ Important Notes
 
@@ -928,7 +928,7 @@ The file structure is as follows:
 }
 ```
 
----
+ 
 
 #### ‣ Changing the Title and Level Names
 
@@ -945,7 +945,7 @@ For example:
 
 When you save the file, the page updates automatically.
 
----
+ 
 
 #### ‣ How to Add a New Language
 
@@ -963,7 +963,7 @@ Example structure:
 }
 ```
 
----
+ 
 
 #### ‣ Field Definitions
 
@@ -973,7 +973,7 @@ Example structure:
 * `flag` → Emoji flag
 * `backward` → Path to the background flag image
 
----
+ 
 
 #### ‣ Adding a New Language
 
@@ -989,7 +989,7 @@ Simply add a new object inside the `languages` array:
 }
 ```
 
----
+ 
 
 #### ‣ Important Notes
 
@@ -1018,7 +1018,7 @@ messages/volunteering/en.json
 
 The volunteering title and all event content are automatically retrieved from this file.
 
----
+ 
 
 #### ‣ File Structure
 
@@ -1029,7 +1029,7 @@ The volunteering title and all event content are automatically retrieved from th
 }
 ```
 
----
+ 
 
 #### ‣ How to Add a New Volunteering Activity
 
@@ -1058,7 +1058,7 @@ Example structure:
 }
 ```
 
----
+ 
 
 #### ‣ Field Descriptions
 
@@ -1070,7 +1070,7 @@ Example structure:
 * `description` → Description text
 * `image` → Path to the certificate or event image
 
----
+ 
 
 #### ‣ Adding an Image
 
@@ -1086,7 +1086,7 @@ Example structure:
 "image": "/assets/images/Volunteering/file-name.png"
 ```
 
----
+ 
 
 #### ‣ Important JSON Rules
 
@@ -1112,7 +1112,7 @@ messages/certificates/en.json
 
 The title, subtitle, category names, and all certificates are automatically retrieved from this file.
 
----
+ 
 
 #### ‣ File Structure
 
@@ -1128,7 +1128,7 @@ The title, subtitle, category names, and all certificates are automatically retr
 }
 ```
 
----
+ 
 
 #### ‣ Editing Titles and Texts
 
@@ -1146,7 +1146,7 @@ Example:
 
 When you update these values, the page updates automatically.
 
----
+ 
 
 #### ‣ Category Management
 
@@ -1169,7 +1169,7 @@ To add a new category:
 "mobile": "Mobile Development"
 ```
 
----
+ 
 
 #### ‣ How to Add a New Certificate
 
@@ -1188,7 +1188,7 @@ Example structure:
 }
 ```
 
----
+ 
 
 #### ‣ Field Descriptions
 
@@ -1199,7 +1199,7 @@ Example structure:
 * `img` → Certificate image path
 * `link` → Certificate link (PDF, verification link, etc.)
 
----
+ 
 
 #### ‣ Adding an Image
 
@@ -1215,7 +1215,7 @@ Example structure:
 "img": "/assets/images/Certificates/certificate-name.png"
 ```
 
----
+ 
 
 #### ‣ Adding a New Certificate
 
@@ -1232,7 +1232,7 @@ Simply add a new object inside the `certificates` array:
 }
 ```
 
----
+ 
 
 #### ‣ Important Rules
 
@@ -1259,7 +1259,7 @@ messages/vision/en.json
 
 The large highlighted statements displayed on the Home Page are automatically retrieved from this file.
 
----
+ 
 
 #### ‣ File Structure
 
@@ -1274,7 +1274,7 @@ The large highlighted statements displayed on the Home Page are automatically re
 }
 ```
 
----
+ 
 
 #### ‣ Statement Structure
 
@@ -1289,14 +1289,14 @@ Example:
 }
 ```
 
----
+ 
 
 #### ‣ Field Descriptions
 
 * `text` → The text displayed on the screen
 * `direction` → Animation direction
 
----
+ 
 
 #### ‣ Direction (Animation Types)
 
@@ -1308,7 +1308,7 @@ The `direction` field can take the following values:
 
 If an invalid value is entered, the animation may not function properly.
 
----
+ 
 
 #### ‣ Adding a New Statement
 
@@ -1321,7 +1321,7 @@ To add a new highlighted statement, insert a new object with the same structure 
 }
 ```
 
----
+ 
 
 #### ‣ Important Rules
 
@@ -1352,7 +1352,7 @@ data/contacts.ts
 * `messages/en.json` → Text content (titles, form fields, messages)
 * `data/contacts.ts` → Actual contact information and social media links
 
----
+ 
 
 #### ‣ Text Content (`messages/en.json`)
 
@@ -1372,7 +1372,7 @@ File structure:
 }
 ```
 
----
+ 
 
 #### ‣ Editing the Title and Description
 
@@ -1381,7 +1381,7 @@ File structure:
 "subtitle": "Do you have an idea? Let’s bring it to life together."
 ```
 
----
+ 
 
 #### ‣ Editing the Form Fields
 
@@ -1410,7 +1410,7 @@ File structure:
 
 All text values here can be freely modified.
 
----
+ 
 
 #### ‣ Successful Submission Message
 
@@ -1421,7 +1421,7 @@ All text values here can be freely modified.
 }
 ```
 
----
+ 
 
 #### ‣ Actual Contact Information (`data/contacts.ts`)
 
@@ -1440,7 +1440,7 @@ export const contactData = {
 }
 ```
 
----
+ 
 
 #### ‣ Editing Email / Phone / Location
 
@@ -1450,7 +1450,7 @@ phone: "+90 555 555 55 55",
 location: "Ankara, Türkiye",
 ```
 
----
+ 
 
 #### ‣ Social Media Links
 
@@ -1464,7 +1464,7 @@ Each social media account is added as an object inside the `socialLinks` array.
 }
 ```
 
----
+ 
 
 #### ‣ Field Descriptions
 
@@ -1482,7 +1482,7 @@ To add a new social media account:
 }
 ```
 
----
+ 
 
 #### ‣ Important Notes
 
@@ -1509,7 +1509,7 @@ messages/projects/index/en.json
 
 The page title, description text, search field texts, and category names are automatically retrieved from this file.
 
----
+ 
 
 #### ‣ Hero Section (Header Area)
 
@@ -1531,7 +1531,7 @@ Example structure:
 * `title` → Main title
 * `subtitle` → Description text
 
----
+ 
 
 #### ‣ Search and Filter Texts
 
@@ -1556,7 +1556,7 @@ Example structure:
 * `showingResults` → Result counter text (e.g., Showing 3 projects)
 * `project` / `projects` → Singular and plural forms
 
----
+ 
 
 #### ‣ Categories (Filter Buttons)
 
@@ -1587,7 +1587,7 @@ Example structure:
 ⚠️ Important:
 Projects that belong to this category must also have `"category": "gameDevelopment"`.
 
----
+ 
 #### ‣  Important Rules
 
 * The JSON structure must not be broken.
@@ -1595,13 +1595,13 @@ Projects that belong to this category must also have `"category": "gameDevelopme
 * There must not be a comma after the last element.
 * Category keys must match project files exactly.
 
----
+ 
 
 ### How to Add a New Project
 
 Follow the steps below to add a new project.
 
----
+ 
 
 #### ‣ 1️⃣ Navigate to the Correct Folder
 
@@ -1621,7 +1621,7 @@ Example:
 messages/projects/details/en/
 ```
 
----
+ 
 
 #### ‣ 2️⃣ Create the File Name Correctly
 
@@ -1651,7 +1651,7 @@ Rules:
 * The project name must not contain spaces.
 * Each project must have a unique index number.
 
----
+ 
 
 #### ‣ 3️⃣ Add the JSON Content
 
@@ -1684,7 +1684,7 @@ To view available technology logo names:
 data/techIcons.ts
 ```
 
----
+ 
 
 #### ‣ Important Fields
 
@@ -1712,7 +1712,7 @@ Example:
 "category": "aiMl"
 ```
 
----
+ 
 
 #### ‣ technologies
 
@@ -1740,7 +1740,7 @@ Used to display detailed information about technologies used in the project.
 * At least one entry is allowed
 * Order determines display order
 
----
+ 
 
 #### ‣ contentBlocks
 
@@ -1748,7 +1748,7 @@ Defines the main content of the project detail page.
 
 Each block represents a different content type.
 
----
+ 
 
 ‣ type: 0 → Text Block
 
@@ -1769,7 +1769,7 @@ Used for long explanations.
 * `subheading` → Subtitle
 * `content` → Long description (`\n\n` for line breaks)
 
----
+ 
 
 ‣ type: 1 → Single Image Block
 
@@ -1789,7 +1789,7 @@ Used to display one large image.
 * `imageUrl` → Image link
 * `caption` → Caption text
 
----
+ 
 
 ‣ type: 3 → Multiple Image Block
 
@@ -1815,7 +1815,7 @@ Used to display multiple images in a grid layout.
 * `alt` → Alternative text (SEO & accessibility)
 * `caption` → Description
 
----
+ 
 
 ‣ type: 4 → Code Example Block
 
@@ -1843,7 +1843,7 @@ Used to display API or usage examples.
 * `code` → Code content
 * `defaultTab` → Default open tab index
 
----
+ 
 
 #### ‣ challenges
 
@@ -1856,7 +1856,7 @@ Lists technical challenges encountered in the project.
 ]
 ```
 
----
+ 
 
 #### ‣ solutions
 
@@ -1869,7 +1869,7 @@ Contains solutions corresponding to the challenges.
 ]
 ```
 
----
+ 
 
 #### ‣ results
 
@@ -1893,7 +1893,7 @@ Displays measurable project outcomes.
 
 Recommended especially for corporate and professional projects.
 
----
+ 
 
 #### ‣ testimonial
 
@@ -1913,7 +1913,7 @@ Used to display client or user feedback.
 * `author` → Reviewer name
 * `position` → Reviewer position
 
----
+ 
 
 #### ‣ Images
 
@@ -1921,7 +1921,7 @@ Used to display client or user feedback.
 * Write the correct path in the `image` field.
 * For content blocks, URL or local paths can be used.
 
----
+ 
 
 #### ‣ Important Rules and Notes
 
@@ -2263,7 +2263,7 @@ The content must keep the same structure, with only the texts translated into Ar
 * The JSON structure must not be modified.
 * No required file should be missing.
 
----
+ 
 
 #### ‣ Structure inside messages/[language-code].json:
 
@@ -2375,7 +2375,7 @@ The content must keep the same structure, with only the texts translated into Ar
 }
 ```
 
----
+ 
 
 #### ‣ Structure inside messages/certificates/[language-code].json:
 
@@ -2420,7 +2420,7 @@ The content must keep the same structure, with only the texts translated into Ar
 }
 ```
 
----
+ 
 
 #### ‣ Structure inside messages/languages/[language-code].json:
 
