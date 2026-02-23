@@ -1983,16 +1983,835 @@ For the new language, you must create the corresponding JSON files inside the `m
 
 
 
+```pash
+
+$LangCode = "<language-code>"
+
+if (-not $LangCode) {
+    Write-Host "Usage: First set the language code, then run the script" -ForegroundColor Yellow
+    Write-Host '  $LangCode = "ar"' -ForegroundColor White
+    exit 1
+}
+
+Write-Host ""
+Write-Host "Creating files for language '$LangCode'..." -ForegroundColor Cyan
+Write-Host ""
+
+function Write-JsonFile {
+    param ([string]$FilePath, [string]$Content)
+    $Dir = Split-Path -Parent $FilePath
+    if (-not (Test-Path $Dir)) { New-Item -ItemType Directory -Path $Dir -Force | Out-Null }
+    if (Test-Path $FilePath) {
+        Write-Host "Skipped (already exists): $FilePath" -ForegroundColor Yellow
+        return
+    }
+    [System.IO.File]::WriteAllText((Resolve-Path $Dir).Path + "\" + (Split-Path -Leaf $FilePath), $Content, [System.Text.Encoding]::UTF8)
+    Write-Host "Created: $FilePath" -ForegroundColor Green
+}
+
+Write-JsonFile "messages\$LangCode.json" '{
+  "header": {
+    "home": "", "stats": "", "services": "", "work": "", "projects": "",
+    "resume": "", "about": "", "skills": "", "languages": "", "volunteering": "",
+    "certificates": "", "contact": "", "startAProject": ""
+  },
+  "home": {
+    "hero": {
+      "greeting": "", "name": "", "titleLine1": "", "titleLine2": "",
+      "description": "", "downloadCV": "", "viewWork": "", "follow": ""
+    },
+    "stats": {
+      "title": "", "subtitle": "",
+      "yearsLabel": "", "yearsDesc": "",
+      "projectsLabel": "", "projectsDesc": "",
+      "clientsLabel": "", "clientsDesc": "",
+      "awardsLabel": "", "awardsDesc": "",
+      "trustedBy": "", "yearsExp": "", "projects": "", "k": ""
+    }
+  },
+  "contact": {
+    "title": "", "subtitle": "", "badge": "",
+    "form": {
+      "name":    { "label": "", "placeholder": "" },
+      "email":   { "label": "", "placeholder": "" },
+      "subject": { "label": "", "placeholder": "" },
+      "message": { "label": "", "placeholder": "" },
+      "submit": "", "sending": ""
+    },
+    "success": { "title": "", "message": "" },
+    "info": {
+      "email":    { "title": "" },
+      "phone":    { "title": "" },
+      "location": { "title": "" }
+    },
+    "social": { "title": "" }
+  },
+  "loading": { "text": "" },
+  "backToProjects": "", "technologiesUsed": "", "projectLink": "",
+  "liveDemo": "", "sourceCode": "", "challenges": "", "solutions": "",
+  "duration": "", "teamSize": "", "resultsImpact": "", "videoNotSupported": "",
+  "client": "", "technologies": "", "date": ""
+}'
+
+Write-JsonFile "messages\certificates\$LangCode.json" '{
+  "title": "", "subtitle": "", "certificatesCount": "", "viewCertificate": "", "of": "",
+  "categories": {
+    "ai": "", "dataScience": "", "cybersecurity": "", "php": "",
+    "cloudComputing": "", "programming": "", "devops": "", "softSkills": "",
+    "network": "", "effectiveCommunication": "", "trainingTrainers": ""
+  },
+  "certificates": [
+    { "title": "", "issuer": "", "date": "", "category": "", "img": "", "link": "" },
+    { "title": "", "issuer": "", "date": "", "category": "", "img": "", "link": "" },
+    { "title": "", "issuer": "", "date": "", "category": "", "img": "", "link": "" }
+  ]
+}'
+
+Write-JsonFile "messages\languages\$LangCode.json" '{
+  "title": "", "subtitle": "",
+  "levels": { "native": "", "professional": "", "intermediate": "" },
+  "languages": [
+    { "name": "", "nativeName": "", "level": "", "flag": "", "backward": "" },
+    { "name": "", "nativeName": "", "level": "", "flag": "", "backward": "" },
+    { "name": "", "nativeName": "", "level": "", "flag": "", "backward": "" }
+  ]
+}'
+
+Write-JsonFile "messages\projects\index\$LangCode.json" '{
+  "hero": { "badge": "", "title": "", "subtitle": "" },
+  "search": {
+    "placeholder": "", "filterButton": "", "showingResults": "", "project": "", "projects": ""
+  },
+  "categories": {
+    "all": "", "webDevelopment": "", "mobileApp": "", "design": "", "aiMl": "", "blockchain": ""
+  },
+  "projectCard": { "technologiesUsed": "" },
+  "noResults": { "title": "", "description": "", "clearButton": "" },
+  "featuredProjects": {
+    "title": "", "subtitle": "", "viewProject": "",
+    "allProjects": {
+      "title": "", "description": "", "button": "",
+      "stats": { "projects": "", "technologies": "", "years": "" }
+    }
+  }
+}'
+
+Write-JsonFile "messages\resume\$LangCode.json" '{
+  "title": "", "subtitle": "",
+  "tabs": { "experience": "", "education": "" },
+  "experience": [
+    { "year": "", "title": "", "company": "" },
+    { "year": "", "title": "", "company": "" },
+    { "year": "", "title": "", "company": "" }
+  ],
+  "education": [
+    { "year": "", "title": "", "company": "" },
+    { "year": "", "title": "", "company": "" },
+    { "year": "", "title": "", "company": "" }
+  ]
+}'
+
+Write-JsonFile "messages\services\$LangCode.json" '{
+  "title": "", "subtitle": "",
+  "items": [
+    { "title": "", "description": "", "icon": "" },
+    { "title": "", "description": "", "icon": "" },
+    { "title": "", "description": "", "icon": "" }
+  ]
+}'
+
+Write-JsonFile "messages\skills\$LangCode.json" '{
+  "title": "", "subtitle": "",
+  "categories": {
+    "programmingLanguages": "", "frameworks": "", "concepts": "", "databases": ""
+  },
+  "skills": {
+    "programmingLanguages": [ { "name": "" }, { "name": "" } ],
+    "frameworks":           [ { "name": "" }, { "name": "" } ],
+    "concepts":             [ { "name": "" }, { "name": "" } ],
+    "databases":            [ { "name": "" }, { "name": "" } ]
+  }
+}'
+
+Write-JsonFile "messages\vision\$LangCode.json" '{
+  "statements": [
+    { "text": "", "direction": "" },
+    { "text": "", "direction": "" },
+    { "text": "", "direction": "" }
+  ]
+}'
+
+Write-JsonFile "messages\volunteering\$LangCode.json" '{
+  "title": "",
+  "volunteering": [
+    { "role": "", "organization": "", "event": "", "location": "", "date": "", "description": "", "image": "" },
+    { "role": "", "organization": "", "event": "", "location": "", "date": "", "description": "", "image": "" },
+    { "role": "", "organization": "", "event": "", "location": "", "date": "", "description": "", "image": "" }
+  ]
+}'
+
+Write-JsonFile "messages\projects\details\$LangCode\1-example-project.json" '{
+  "id": 0,
+  "title": "", "subtitle": "", "isFeatured": false,
+  "description": "", "longDescription": "", "category": "",
+  "tags": [ "", "", "" ],
+  "image": "",
+  "techLogos": [ "", "", "" ],
+  "date": "", "duration": "", "teamSize": 0, "role": "",
+  "demoLink": "", "githubLink": null,
+  "technologies": [
+    { "name": "", "description": "" },
+    { "name": "", "description": "" },
+    { "name": "", "description": "" }
+  ],
+  "contentBlocks": [
+    { "type": 0, "heading": "", "subheading": "", "content": "" },
+    { "type": 1, "heading": "", "imageUrl": "", "caption": "" },
+    { "type": 2, "heading": "", "videoUrl": "", "posterUrl": "", "caption": "" },
+    { "type": 3, "heading": "", "images": [
+      { "url": "", "alt": "", "caption": "" },
+      { "url": "", "alt": "", "caption": "" },
+      { "url": "", "alt": "", "caption": "" }
+    ]},
+    { "type": 4, "heading": "", "codeBlocks": [
+      { "language": "", "label": "", "code": "" },
+      { "language": "", "label": "", "code": "" },
+      { "language": "", "label": "", "code": "" }
+    ], "defaultTab": 0 }
+  ],
+  "challenges": [ "", "", "" ],
+  "solutions":  [ "", "", "" ],
+  "results": [
+    { "metric": "", "value": "", "description": "" },
+    { "metric": "", "value": "", "description": "" },
+    { "metric": "", "value": "", "description": "" }
+  ],
+  "testimonial": { "text": "", "author": "", "position": "" }
+}'
+
+Write-Host ""
+Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Cyan
+Write-Host "All files have been successfully created!" -ForegroundColor Green
+Write-Host ""
+Write-Host "Final step — add the following line to data/systemLanguages.ts:" -ForegroundColor Yellow
+Write-Host "  { code: '$LangCode', name: 'Language Name', locale: '$LangCode-XX' }" -ForegroundColor White
+Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Cyan
+```
 
 
 
+If you want to write it manually, the following files must be created:
+
+```
+messages/ar.json
+messages/certificates/ar.json
+messages/languages/ar.json
+messages/projects/index/ar.json
+messages/services/ar.json
+messages/skills/ar.json
+messages/vision/ar.json
+messages/volunteering/ar.json
+```
+
+#### ‣ 3️⃣ Create a Language Folder for Project Details
+
+A separate folder is required for project details.
+
+Go to the following directory:
+
+```
+messages/projects/details
+```
+
+For English, the structure usually looks like this:
+
+```
+messages/projects/details/en/
+```
+
+For the new language:
+
+```
+messages/projects/details/ar/
+```
+
+Create this folder.
+
+#### ‣ Add Project Translations
+
+If English projects already exist in the system (inside the `details/en` folder), you must create the Arabic versions of the same files.
+
+Example:
+
+```
+messages/projects/details/en/12-nobadwords.json
+```
+
+Arabic version:
+
+```
+messages/projects/details/ar/12-nobadwords.json
+```
+
+The content must keep the same structure, with only the texts translated into Arabic.
+
+#### ‣ Important Rules
+
+* The `code` value must match the folder name.
+* All message files must be created.
+* The language will not work unless the project details folder is created.
+* The JSON structure must not be modified.
+* No required file should be missing.
+
+---
+
+#### ‣ Structure inside messages/[language-code].json:
+
+```json
+{
+  "header": {
+    "home": "",
+    "stats": "",
+    "services": "",
+    "work": "",
+    "projects": "",
+    "resume": "",
+    "about": "",
+    "skills": "",
+    "languages": "",
+    "volunteering": "",
+    "certificates": "",
+    "contact": "",
+    "startAProject": ""
+  },
+  "home": {
+    "hero": {
+      "greeting": "",
+      "name": "",
+      "titleLine1": "",
+      "titleLine2": "",
+      "description": "",
+      "downloadCV": "",
+      "viewWork": "",
+      "follow": ""
+    },
+    "stats": {
+      "title": "",
+      "subtitle": "",
+      "yearsLabel": "",
+      "yearsDesc": "",
+      "projectsLabel": "",
+      "projectsDesc": "",
+      "clientsLabel": "",
+      "clientsDesc": "",
+      "awardsLabel": "",
+      "awardsDesc": "",
+      "trustedBy": "",
+      "yearsExp": "",
+      "projects": "",
+      "k": ""
+    }
+  },
+  "contact": {
+    "title": "",
+    "subtitle": "",
+    "badge": "",
+    "form": {
+      "name": {
+        "label": "",
+        "placeholder": ""
+      },
+      "email": {
+        "label": "",
+        "placeholder": ""
+      },
+      "subject": {
+        "label": "",
+        "placeholder": ""
+      },
+      "message": {
+        "label": "",
+        "placeholder": ""
+      },
+      "submit": "",
+      "sending": ""
+    },
+    "success": {
+      "title": "",
+      "message": ""
+    },
+    "info": {
+      "email": {
+        "title": ""
+      },
+      "phone": {
+        "title": ""
+      },
+      "location": {
+        "title": ""
+      }
+    },
+    "social": {
+      "title": ""
+    }
+  },
+  "loading": {
+    "text": ""
+  },
+  "backToProjects": "",
+  "technologiesUsed": "",
+  "projectLink": "",
+  "liveDemo": "",
+  "sourceCode": "",
+  "challenges": "",
+  "solutions": "",
+  "duration": "",
+  "teamSize": "",
+  "resultsImpact": "",
+  "videoNotSupported": "",
+  "client": "",
+  "technologies": "",
+  "date": ""
+}
+```
+
+---
+
+#### ‣ Structure inside messages/certificates/[language-code].json:
+
+```json
+{
+  "title": "",
+  "subtitle": "",
+  "certificatesCount": "",
+  "viewCertificate": "",
+  "of": "",
+  "categories": {
+    "ai": "",
+    "dataScience": "",
+    "cybersecurity": "",
+    "php": "",
+    "cloudComputing": "",
+    "programming": "",
+    "devops": "",
+    "softSkills": "",
+    "network": "",
+    "effectiveCommunication": "",
+    "trainingTrainers": ""
+  },
+  "certificates": [
+    {
+      "title": "",
+      "issuer": "",
+      "date": "",
+      "category": "",
+      "img": "",
+      "link": ""
+    },
+    {
+      "title": "",
+      "issuer": "",
+      "date": "",
+      "category": "",
+      "img": "",
+      "link": ""
+    }
+  ]
+}
+```
+
+---
+
+#### ‣ Structure inside messages/languages/[language-code].json:
+
+```json
+{
+  "title": "",
+  "subtitle": "",
+  "levels": {
+    "native": "",
+    "professional": "",
+    "intermediate": ""
+  },
+  "languages": [
+    {
+      "name": "",
+      "nativeName": "",
+      "level": "",
+      "flag": "",
+      "backward": ""
+    },
+    {
+      "name": "",
+      "nativeName": "",
+      "level": "",
+      "flag": "",
+      "backward": ""
+    },
+    {
+      "name": "",
+      "nativeName": "",
+      "level": "",
+      "flag": "",
+      "backward": ""
+    }
+  ]
+}
+```
+
+#### ‣ Structure inside messages/projects/details/[dil kodu]/[index-projcetname].json:
+
+
+```json
+{
+  "id": 0,
+  "title": "",
+  "subtitle": "",
+  "isFeatured": false,
+  "description": "",
+  "longDescription": "",
+  "category": "",
+  "tags": [
+    "",
+    "",
+    ""
+  ],
+  "image": "",
+  "techLogos": [
+    "",
+    "",
+    ""
+  ],
+  "date": "",
+  "duration": "",
+  "teamSize": 0,
+  "role": "",
+  "demoLink": "",
+  "githubLink": null,
+  "technologies": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "contentBlocks": [
+    {
+      "type": 0,
+      "heading": "",
+      "subheading": "",
+      "content": ""
+    },
+    {
+      "type": 1,
+      "heading": "",
+      "imageUrl": "",
+      "caption": ""
+    },
+    {
+      "type": 2,
+      "heading": "",
+      "videoUrl": "",
+      "posterUrl": "",
+      "caption": ""
+    },
+    {
+      "type": 3,
+      "heading": "",
+      "images": [
+        {
+          "url": "",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "url": "",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "url": "",
+          "alt": "",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "type": 4,
+      "heading": "",
+      "codeBlocks": [
+        {
+          "language": "",
+          "label": "",
+          "code": ""
+        },
+        {
+          "language": "",
+          "label": "",
+          "code": ""
+        },
+        {
+          "language": "",
+          "label": "",
+          "code": ""
+        }
+      ],
+      "defaultTab": 0
+    }
+  ],
+  "challenges": [
+    "",
+    "",
+    ""
+  ],
+  "solutions": [
+    "",
+    "",
+    ""
+  ],
+  "results": [
+    {
+      "metric": "",
+      "value": "",
+      "description": ""
+    },
+    {
+      "metric": "",
+      "value": "",
+      "description": ""
+    },
+    {
+      "metric": "",
+      "value": "",
+      "description": ""
+    }
+  ],
+  "testimonial": {
+    "text": "",
+    "author": "",
+    "position": ""
+  }
+}
+```
+
+#### ‣ Structure inside messages/projects/index/[dil kodu].json:
+
+```json
+{
+  "hero": {
+    "badge": "",
+    "title": "",
+    "subtitle": ""
+  },
+  "search": {
+    "placeholder": "",
+    "filterButton": "",
+    "showingResults": "",
+    "project": "",
+    "projects": ""
+  },
+  "categories": {
+    "all": "",
+    "webDevelopment": "",
+    "mobileApp": "",
+    "design": "",
+    "aiMl": "",
+    "blockchain": ""
+  },
+  "projectCard": {
+    "technologiesUsed": ""
+  },
+  "noResults": {
+    "title": "",
+    "description": "",
+    "clearButton": ""
+  },
+  "featuredProjects": {
+    "title": "",
+    "subtitle": "",
+    "viewProject": "",
+    "allProjects": {
+      "title": "",
+      "description": "",
+      "button": "",
+      "stats": {
+        "projects": "",
+        "technologies": "",
+        "years": ""
+      }
+    }
+  }
+}
+```
 
 
 
+#### ‣ Structure inside messages/resume/[dil kodu].json.json:
+```json
+{
+  "title": "",
+  "subtitle": "",
+  "tabs": {
+    "experience": "",
+    "education": ""
+  },
+  "experience": [
+    {
+      "year": "",
+      "title": "",
+      "company": ""
+    },
+    {
+      "year": "",
+      "title": "",
+      "company": ""
+    },
+    {
+      "year": "",
+      "title": "",
+      "company": ""
+    }
+  ],
+  "education": [
+    {
+      "year": "",
+      "title": "",
+      "company": ""
+    },
+    {
+      "year": "",
+      "title": "",
+      "company": ""
+    },
+    {
+      "year": "",
+      "title": "",
+      "company": ""
+    }
+  ]
+}
+```
 
 
+#### ‣ Structure inside messages/services/[dil kodu].json:
 
+```json
+{
+  "title": "",
+  "subtitle": "",
+  "items": [
+    {
+      "title": "",
+      "description": "",
+      "icon": ""
+    },
+    {
+      "title": "",
+      "description": "",
+      "icon": ""
+    },
+    {
+      "title": "",
+      "description": "",
+      "icon": ""
+    }
+  ]
+}
+```
 
+#### ‣ Structure inside messages/skills/[dil kodu].json:
+```json
+{
+  "title": "",
+  "subtitle": "",
+  "categories": {
+    "programmingLanguages": "",
+    "frameworks": "",
+    "concepts": "",
+    "databases": ""
+  },
+  "skills": {
+    "programmingLanguages": [
+      { "name": "" },
+      { "name": "" }
+    ],
+    "frameworks": [
+      { "name": "" },
+      { "name": "" }
+    ],
+    "concepts": [
+      { "name": "" },
+      { "name": "" }
+    ],
+    "databases": [
+      { "name": "" },
+      { "name": "" }
+    ]
+  }
+}
+```
+#### ‣ Structure inside messages/vision/[dil kodu].json:
+```json
+{
+  "statements": [
+    {
+      "text": "",
+      "direction": ""
+    },
+    {
+      "text": "",
+      "direction": ""
+    },
+    {
+      "text": "",
+      "direction": ""
+    }
+  ]
+}
+```
+#### ‣ Structure inside messages/volunteering/[dil kodu].json:
+
+```json
+{
+  "title": "",
+  "volunteering": [
+    {
+      "role": "",
+      "organization": "",
+      "event": "",
+      "location": "",
+      "date": "",
+      "description": "",
+      "image": ""
+    },
+    {
+      "role": "",
+      "organization": "",
+      "event": "",
+      "location": "",
+      "date": "",
+      "description": "",
+      "image": ""
+    },
+    {
+      "role": "",
+      "organization": "",
+      "event": "",
+      "location": "",
+      "date": "",
+      "description": "",
+      "image": ""
+    }
+  ]
+}
+```
 
 
 
